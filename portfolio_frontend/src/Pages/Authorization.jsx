@@ -34,9 +34,17 @@ function Authorization() {
   
       if (Object.values(validation).every((error) => !error)) {
    
-        const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/viwerlogin`, {name,email});
+        console.log(import.meta.env.VITE_API_URL);
+        
+        const response = await axios({
+          url: `${import.meta.env.VITE_API_URL}auth/viwerlogin`,
+          method: "POST",
+          data: { name, email },
+          withCredentials: true,
+        });
 
         console.log(response);
+
         if(response.data.status === 200) {
           localStorage.setItem("Token",response.data.token);
           navigate('/Resume');
@@ -47,11 +55,10 @@ function Authorization() {
       }
     } catch (error) {
       console.log(error);
-      message.error(error.data.message || "Please try again later.");
+      message.error(error?.response?.data.message || "Please try again later.");
     }
   }
 
-  console.log(name,email,validationError);
   return (
     <div id="Authorization">
       <div id="viwerForm" className="d-flex flex-column justify-content-center align-items-center h-200">
