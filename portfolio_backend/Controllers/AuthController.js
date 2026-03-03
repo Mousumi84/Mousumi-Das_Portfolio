@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const { dataValidation } = require("../Utils/AuthUtil");
-const { insertUserModel } = require("../Models/AuthModel");
+const { storeViwerInfoModel } = require("../Models/AuthModel");
 
 
 const viwerlogin = async (req, res) => {
-  console.log("Login", req);
+  console.log("Login", req.body);
   const { name, email } = req.body;
 
   //Data Validation
@@ -19,7 +19,7 @@ const viwerlogin = async (req, res) => {
 
   //User registered / not
   try {
-    const userDb = await insertUserModel({ name, email});
+    const userDb = await storeViwerInfoModel({ name, email});
     const jwtToken = jwt.sign({ data: userDb }, process.env.JWT_SECRET);
 
     return res.send({

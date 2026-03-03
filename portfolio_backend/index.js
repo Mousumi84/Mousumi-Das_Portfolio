@@ -14,29 +14,31 @@ const PORT = process.env.PORT || 5050;
 
 //Middleware-------------------------------
 app.use(cors({
-    origin: "https://mousumi-das-portfolio-zeta.vercel.app",
+    origin: [
+        "http://localhost:5173", // local vite
+        "https://mousumi-das-portfolio-zeta.vercel.app",
+    ],
     credentials: true
 }));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 
-
 //Routers----------------------------------
-app.get("/", (req, res) => {
-    const sql = `CREATE TABLE IF NOT EXISTS ViewerMD (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        email VARCHAR(60) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )`;
+// app.get("/", (req, res) => {
+//     const sql = `CREATE TABLE IF NOT EXISTS ViewerMD (
+//         id INT AUTO_INCREMENT PRIMARY KEY,
+//         name VARCHAR(50) NOT NULL,
+//         email VARCHAR(60) NOT NULL,
+//         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//     )`;
     
-    db.query(sql, (er) => {
-        if(er) return res.status(500).send(er);
+//     db.query(sql, (er) => {
+//         if(er) return res.status(500).send(er);
     
-        return res.send({ message: "Successfully created table"});
-    });
-});
+//         return res.send({ message: "Successfully created table"});
+//     });
+// });
 
 app.use('/auth',AuthRouter);
 

@@ -1,52 +1,63 @@
-const db = require('../db');
+const mongoose=require("mongoose");
+
+const Schema = mongoose.Schema;
+
+const ViwerSchema = new Schema({
+    name: {
+        type:String,
+        required:true,
+    },
+    email: {
+        type:String,
+        required:true,
+    }
+});
+
+const ViwerModel = mongoose.model("Viwer",ViwerSchema);
 
 
-const insertUserModel = ({name, email}) => {
-    return new Promise((resolve,reject) => {
-        //console.log(name,email);
+const storeViwerInfoModel = ({name, email}) => {
+    return new Promise(async (resolve,reject) => {
+        console.log(name,email);
 
-        const sql = "INSERT INTO ViewerMD (name, email) VALUES (?, ?)";
-        db.query(sql, [name, email], (err, result) => {
-            if(err) {
-                console.log("error ln 28", err)
-                reject({ status: 500, message: "Failed to insert user", error: err });
-            } else {
-                const userId = result.insertId;
-                const sql = "SELECT * FROM ViewerMD WHERE id = ?";
-                db.query(sql,userId,(err,result) => {
-                    if(err) {
-                        console.log("error ln 28", err)
-                        reject({ status: 500, message: "Failed to get viwer details", error: err });
-                    } else {
-                        resolve(result);
-                    }
-                })
-            }
+        const ViwerObj=new ViwerModel({
+            name : name,
+            email : email,
         });
-    });
-}
 
-
-const tokenBacklistedModel = ({jwtToken}) => {
-    return new Promise((resolve,reject) => {
-    
-        if(jwtToken) {
-            const sql = "INSERT INTO blacklistedTokens (token) VALUES (?)";
-            db.query(sql, [jwtToken], (err, result) => {
-                console.log("token",err,result)
-                if(err) {
-                    if (err.code === "ER_DUP_ENTRY") {
-                        reject({ status: 409, message: "Token already blacklisted"});
-                    }
-            
-                    reject({ status: 500, message: "Database query failed"});
-                } else {
-                    resolve(result);
-                }
-            });
+        try {
+            const response=await ViwerObj.save();
+            resolve(response);
+        } catch (error) {
+            console.log("error",error)
+            reject(error);
         }
+
     });
 }
 
 
-module.exports = { insertUserModel, tokenBacklistedModel };
+module.exports = { storeViwerInfoModel };
+
+
+
+
+
+// const sql = "INSERT INTO ViwerMD (name, email) VALUES (?, ?)";
+        // db.query(sql, [name, email], (err, result) => {
+        //     if(err) {
+        //         console.log("error ln 28", err)
+        //         reject({ status: 500, message: "Failed to insert user", error: err });
+        //     } else {
+        //         const userId = result.insertId;
+        //         const sql = "SELECT * FROM ViwerMD WHERE id = ?";
+        //         db.query(sql,userId,(err,result) => {
+        //             if(err) {
+        //                 console.log("error ln 28", err)
+        //                 reject({ status: 500, message: "Failed to get viwer details", error: err });
+        //             } else {
+        //                 resolve(result);
+        //             }
+        //         })
+        //     }
+        // });
