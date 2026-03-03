@@ -34,7 +34,7 @@ function Authorization() {
   
       if (Object.values(validation).every((error) => !error)) {
    
-        const response = await axios.post("http://localhost:5000/auth/viwerlogin", {name,email});
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/viwerlogin`, {name,email});
 
         console.log(response);
         if(response.data.status === 200) {
