@@ -40,6 +40,9 @@ app.use(express.json());
 //     });
 // });
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the Mousumi Das Portfolio API");
+});
 app.use('/auth',AuthRouter);
 
 
