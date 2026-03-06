@@ -34,7 +34,7 @@ function Authorization() {
   
       if (Object.values(validation).every((error) => !error)) {
    
-        console.log(import.meta.env.VITE_API_URL);
+        // console.log(import.meta.env.VITE_API_URL);
         
         const response = await axios({
           url: `${import.meta.env.VITE_API_URL}auth/viwerlogin`,
