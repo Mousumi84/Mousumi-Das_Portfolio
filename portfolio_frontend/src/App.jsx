@@ -1,13 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { lazy } from 'react';
 import Dashboard from './Components/Dashboard';
 import { Suspense } from 'react';
-import Authorization from './Pages/Authorization';
 import ViewerProtectedRoute from './Utils/ViewerProtectedRoute';
+import ViwerLogin from './Pages/ViwerLogin';
 
-const About = lazy(() => import('./Pages/About'));
-const AccessibilityCheck = lazy(() => import('./Pages/AccessibilityCheck'));
 
 function App() {
 
@@ -15,7 +12,7 @@ function App() {
         <div id='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Authorization />} />
+                    <Route path='/' element={<ViwerLogin />} />
                     <Route path='/Resume'  element={<ViewerProtectedRoute >
                                                         <Dashboard />
                                                     </ViewerProtectedRoute>} />

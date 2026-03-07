@@ -24,7 +24,7 @@ function Contact() {
       <h1>Contact</h1>
       <div id="cnt-box" >
         {items.map(i => {
-          console.log(i)
+          // console.log(i)
           return (
             <div key={i.key} className="contact-details">
               <div className="line"><FaPhoneAlt /> <div className="mobile">{i.mobile}</div></div>

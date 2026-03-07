@@ -114,7 +114,7 @@ function Skills() {
       sub_categories: [
         {
           key: "db0",
-          skill: "MongoDB (No SQL)",
+          skill: "MongoDB (NoSQL)",
           img: "mdb.png"
           
         },

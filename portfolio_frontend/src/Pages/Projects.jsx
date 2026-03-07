@@ -39,7 +39,7 @@ function Projects() {
       <div className="prj-box">
         <table>
           {items.map((i,index) => {
-            console.log(i,index);
+            // console.log(i,index);
             return (
             <tr key={i.key} className="timeline">
               {index % 2 === 0 && <>

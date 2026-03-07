@@ -1,7 +1,7 @@
 #App {
     height: fit-content;
 
-    #Authorization {
+    #ViwerLogin {
         #viwerForm {
             form {
                 color: gold;
@@ -66,15 +66,104 @@
         #Intro {
             color: white;
             padding-inline: 5%;
-            font-size: 33px;
+            font-size: 30px;
     
             #myself {
                 /* border: solid 1px pink; */
                 width: 60%;
-                padding-top: 3%;
+                padding-top: 1%;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
 
-                .fsdv {
-                    font-size: 80px;
+                #details {
+                    display: flex;
+                    flex-direction: column;
+
+                    
+                    .fsdv {
+                        font-size: 80px;
+                    }
+                }
+
+                #links {
+                    /* border: solid 1px red; */
+                    height: 100px;
+                    width: 90%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    button {
+                        border: solid 2px rgba(78, 78, 78, 0.288); 
+                        border-radius: 10px;
+                        box-shadow: 0 0 5px rgba(255, 255, 255, 0.066);
+                        padding: 10px;
+
+                        a {
+                            color: white;
+                            font-size: 50px;
+                        }
+
+                    }
+
+                    button:hover {
+                        box-shadow: 0 0 20px rgba(255, 255, 255, 0.066);
+                    }
+
+                    .link-clicked {
+                        border: solid 2px rgba(255, 255, 255, 0.077);
+                        box-shadow: 0 0 20px rgba(255, 255, 255, 0.066);
+                    }
+                }
+
+                #file-handler {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    /* border: solid 1px #ffffff4f; */
+                    justify-content: center;
+
+                    /* .file-upload,  */
+                    .file-download {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 10px;
+                        width: 30%;
+                        /* border: solid 1px #ffff00; */
+
+                        input[type="file"] {
+                            display: none;
+                        }
+
+                        button {
+                            border: solid 2px rgba(78, 78, 78, 0.288); 
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px rgba(255, 255, 255, 0.066);
+                            padding: 10px;
+                            width: 100%;
+    
+                            a {
+                                color: white;
+                                font-size: 30px;
+                                display: flex;
+                                flex-direction: row; 
+                                align-items: center;
+                                justify-content: space-evenly;
+                                text-decoration: none;
+                            }
+                        }
+
+                        button:hover {
+                            box-shadow: 0 0 20px rgba(255, 255, 255, 0.066);
+                        }
+
+                        /* .link-clicked {
+                            border: solid 2px rgba(255, 255, 255, 0.077);
+                            box-shadow: 0 0 20px rgba(255, 255, 255, 0.066);
+                        } */
+                    }
                 }
             }
     
@@ -122,7 +211,15 @@
         color: white;
        /*  border: solid yellow 2px; */
         padding: 5%;
-        height: 100vh;
+        height: max-content;
+
+        h1 {
+            margin-bottom: 100px;
+        }
+
+        p {
+            font-size: 30px;
+        }
 
     }
     
@@ -132,26 +229,31 @@
         padding: 5%;
         height: max-content;
 
+        h1 {
+            margin-bottom: 100px;
+        }
+
         #ctgList {
             list-style-type: circle;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            font-size: larger;
+            font-size: 25px;
 
             .skill-list {
                 list-style-type: square;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 30px;
+                gap: 40px;
+                width: 100%;
+                /* border: solid 1px #ffffff4f; */
             
                 li {
                     .skills-box {
                         margin-top: 10px;
-                        /* border: solid 1px pink; */
-                        width: 200px;
-                        height: 250px;
+                        width: 215px;
+                        height: 257px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -199,6 +301,10 @@
         padding: 5%;
         height: max-content;
 
+        h1 {
+            margin-bottom: 100px;
+        }
+
         .exp-box {
             position: relative;
 
@@ -211,7 +317,7 @@
                     position: relative;
                 }
 
-                .timeline:hover {
+                .content:hover {
                     /* border: solid 1px #ffffff4f; */
 
                     .box {
@@ -229,10 +335,11 @@
                         max-height: 210px;
                     }
 
-                    .blank {
-                        color: #ffffff;
-                        font-size: calc(1.2rem + 3px); 
-                    }
+                }
+
+                .timeline:has(.content:hover) .blank {
+                    color: #ffffff;
+                    font-size: 32px;
                 }
 
                 .timeline::before {
@@ -274,6 +381,7 @@
                 
                 .blank {
                     color: #ffffff4f;
+                    font-size: 30px;
                     transition: color 1s ease, font-size 0.3s ease;
                 }
                 
@@ -292,13 +400,13 @@
                     }
 
                     .company {
-                        font-size: larger;
+                        font-size: 20PX;
                         font-weight: bolder;
                         transition: font-size 0.3s ease;
                     }
 
                     .role {
-                        font-size: medium;
+                        font-size: larger;
                         font-weight: bolder;
                         color: #ffffff96;
                         transition: font-size 0.3s ease;
@@ -306,7 +414,7 @@
 
 
                     .duration {
-                        font-size: smaller;
+                        font-size: medium;
                         font-weight: bolder;
                         color: #ffffff96;
                     }
@@ -315,12 +423,14 @@
                     .description {
                         display: none;
                         transition: all 0.3s ease;
+                        font-size: large;
 
                         ul {
                             list-style-type: circle;
                             display: flex;
                             flex-direction: column;
                             gap: 10px;
+                            font-size: large;
                         }
                     }  
                     
@@ -336,6 +446,10 @@
         padding: 5%;
         height: max-content;
 
+        h1 {
+            margin-bottom: 100px;
+        }
+
         .prj-box {
             position: relative;
 
@@ -348,14 +462,11 @@
                     position: relative;
                 }
 
-                .timeline:hover {
-                    /* border: solid 1px #ffffff4f; */
-
-                    .box {
-                        padding: 15px;
-                        transform: scale(1.05);
-                        filter: drop-shadow(0 0 10px #ffffffb0);
-                    }   
+                .box:hover {
+                    padding: 15px;
+                    transform: scale(1.05);
+                    filter: drop-shadow(0 0 10px #ffffffb0);
+                     
                     
                     .features {
                         /* visibility: visible; */
@@ -365,11 +476,6 @@
                         scrollbar-color: rgba(255,255,255,0.4) transparent;
                         max-height: 210px;
                     } 
-
-                    .blank {
-                        color: #ffffff;
-                        font-size: calc(1.2rem + 3px); 
-                    }
                 }
 
                 .timeline::before {
@@ -425,6 +531,7 @@
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
+                        /* border: solid 1px yellow; */
                     }
 
                     .prjimg img {
@@ -434,7 +541,7 @@
                     }
 
                     .name {
-                        font-size: larger;
+                        font-size: 20px;
                         font-weight: bolder;
                         transition: font-size 0.3s ease;
                     }
@@ -446,7 +553,7 @@
 
                     .stack-list { 
                         list-style-type: disc;
-                        font-size: medium;
+                        font-size: larger;
                         font-weight: bolder;
                         color: #ffffff96;
                         transition: font-size 0.3s ease;
@@ -466,12 +573,14 @@
                         /* visibility: hidden; */
                         display: none;
                         transition: all 0.3s ease;
+                        font-size: large;
 
                         ul {
                             list-style-type: circle;
                             display: flex;
                             flex-direction: column;
                             gap: 10px;
+                            font-size: large;
                         }
                     }  
                     
@@ -487,6 +596,10 @@
         padding: 5%;
         height: max-content;
 
+        h1 {
+            margin-bottom: 100px;
+        }
+
         .edu-box {
             position: relative;
 
@@ -499,19 +612,21 @@
                     position: relative;
                 }
 
-                .timeline:hover {
-                    /* border: solid 1px #ffffff4f; */
-
+                .content:hover {
                     .box {
                         transform: scale(1.05);
-                        filter: drop-shadow(0 0 10px #ffffffb0);
-                    }   
-                    
+                        filter: drop-shadow(0 0 10px #ffffffb0);  
+                    }
 
                     .blank {
                         color: #ffffff;
-                        font-size: calc(1.2rem + 3px); 
+                        font-size: 32px; 
                     }
+                }
+
+                .timeline:has(.content:hover) .blank {
+                    color: #ffffff;
+                    font-size: 32px;
                 }
 
                 .timeline::before {
@@ -539,6 +654,7 @@
 
                 .content {
                     position: relative;
+                    /* border: solid 1px red; */
                 }
 
 
@@ -553,6 +669,7 @@
                 
                 .blank {
                     color: #ffffff4f;
+                    font-size: 30px;
                     transition: color 1s ease, font-size 0.3s ease;
                 }
                 
@@ -567,7 +684,8 @@
                         transition: all 1s ease;
                         display: flex;
                         flex-direction: row;
-                        gap: 20px
+                        gap: 20px;
+                        /* border: solid 1px yellow; */
                     }
 
                     .logo {
@@ -589,7 +707,7 @@
                     }
 
                     .school {
-                        /* font-size: larger; */
+                        font-size: 20px;
                         font-weight: bolder;
                         transition: font-size 0.3s ease;
                     }
@@ -600,14 +718,14 @@
                     }
 
                     .specialization {
-                        font-size: medium;
+                        font-size: large;
                         color: #ffffff96;
                         transition: font-size 0.3s ease;
                     }
 
 
                     .duration {
-                        font-size: smaller;
+                        font-size: medium;
                         font-weight: bolder;
                         color: #ffffff96;
                     }
@@ -625,6 +743,10 @@
         padding: 5%;
         height: max-content;
 
+        h1 {
+            margin-bottom: 100px;
+        }
+
         .crf-box {
             position: relative;
 
@@ -637,14 +759,11 @@
                     position: relative;
                 }
 
-                .timeline:hover {
-                    /* border: solid 1px #ffffff4f; */
-
-                    .box {
-                        padding: 15px;
-                        transform: scale(1.05);
-                        filter: drop-shadow(0 0 10px #ffffffb0);
-                    }   
+                .box:hover {
+                    padding: 15px;
+                    transform: scale(1.05);
+                    filter: drop-shadow(0 0 10px #ffffffb0);
+  
                     
                     .features {
                         /* visibility: visible; */
@@ -657,7 +776,7 @@
 
                     .blank {
                         color: #ffffff;
-                        font-size: calc(1.2rem + 3px); 
+                        font-size: 32px; 
                     }
                 }
 
@@ -689,14 +808,7 @@
 
 
                 .left {
-                    /* text-align: right; */
                     margin-right: 40px;
-
-                    /* .crfimg {
-                        border: solid 2px red;
-                        display: flex;
-                        justify-content: flex-end;
-                    } */
 
                 }
                 
@@ -707,6 +819,7 @@
                 
                 .blank {
                     color: #ffffff4f;
+                    font-size: 30px;
                     transition: color 1s ease, font-size 0.3s ease;
                 }
                 
@@ -740,13 +853,13 @@
 
 
                     .specialization {
-                        font-size: larger;
+                        font-size: 20px;
                         font-weight: bolder;
                         transition: font-size 0.3s ease;
                     }
 
                     .company { 
-                        font-size: smaller;
+                        font-size: medium;
                         font-weight: bolder;
                         color: #ffffff96;
                     } 
@@ -763,6 +876,10 @@
         padding: 5%;
         height: max-content;
 
+        h1 {
+            margin-bottom: 100px;
+        }
+
         #cnt-box {
             margin: 30px;
             background: rgba(255, 255, 255, 0.05);
@@ -777,24 +894,24 @@
             .contact-details {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 25px;
                 /* border: solid yellow 2px; */
 
                 .line {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 20px;
-                    font-size: 30px;
+                    gap: 40px;
+                    font-size: 35px;
 
                     div {
-                        font-size: 20px;
+                        font-size: 25px;
                     }
                 }
             }
         }
+
         #cnt-box:hover {
-            padding: 40px;
             transform: scale(1.05);
             filter: drop-shadow(0 0 10px #ffffffb0);
         }

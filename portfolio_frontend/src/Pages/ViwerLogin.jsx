@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Authorization() {
+function ViwerLogin() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -60,7 +60,7 @@ function Authorization() {
   }
 
   return (
-    <div id="Authorization">
+    <div id="ViwerLogin">
       <div id="viwerForm" className="d-flex flex-column justify-content-center align-items-center h-200">
       <form className="rounded p-10 " encType="multipart/form-data">
         <div className="mb-5">
@@ -92,4 +92,4 @@ function Authorization() {
   )
 }
 
-export default Authorization;
+export default ViwerLogin;
