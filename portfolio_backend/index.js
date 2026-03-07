@@ -18,7 +18,7 @@ app.use(cors({
         "http://localhost:5173", // local vite
         "https://mousumi-das-portfolio-zeta.vercel.app",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    // methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
 app.use(express.urlencoded({extended:true}));
