@@ -10,14 +10,14 @@ function App() {
 
     return (
         <div id='App'>
-            <BrowserRouter>
+            {/* <BrowserRouter> */}
                 <Routes>
                     <Route path='/' element={<ViwerLogin />} />
                     <Route path='/Resume'  element={<ViewerProtectedRoute >
                                                         <Dashboard />
                                                     </ViewerProtectedRoute>} />
                 </Routes>
-            </BrowserRouter>
+            {/* </BrowserRouter>     */}
         </div>
   )
 }
