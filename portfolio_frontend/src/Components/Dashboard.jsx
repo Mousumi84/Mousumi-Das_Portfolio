@@ -147,6 +147,10 @@ function Dashboard() {
         </div>
 
         <div id="meimg">
+          <div className="shape shape1"></div>
+          <div className="shape shape2"></div>
+          <div className="shape shape3"></div>
+          
           <img src="mousumi.jpg" alt="Mousumi Das"/>
         </div>
       </div>
