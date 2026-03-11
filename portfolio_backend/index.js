@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5050;
 //Middleware-------------------------------
 app.use(cors({
     origin: [
-        "http://localhost:5173", // local vite
+        "http://localhost:3000", // local vite
         "https://mousumi-das-portfolio-zeta.vercel.app",
     ],
     // methods: ["GET", "POST", "PUT", "DELETE"],
