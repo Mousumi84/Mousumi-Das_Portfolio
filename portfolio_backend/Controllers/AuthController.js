@@ -29,11 +29,11 @@ const viwerlogin = async (req, res) => {
       data: userDb,
     });
   } catch (error) {
-    console.log("error",error);
+    console.log("error ->",error);
     return res.send({
-      status: error.status || 500,
-      message: error.sqlMessage || "Internal Server Error",
-      error: error.error || error,
+      status: 500,
+      message: "Internal Server Error ",
+      error: error.message,
     });
   }
 };
