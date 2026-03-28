@@ -11,7 +11,11 @@ const ViwerSchema = new Schema({
         type:String,
         required:true,
     }
-});
+},
+{
+    timestamps: true,
+}
+);
 
 const ViwerModel = mongoose.model("Viwer",ViwerSchema);
 
