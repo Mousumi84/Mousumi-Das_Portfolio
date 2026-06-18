@@ -21,7 +21,7 @@ function Projects() {
       key: "projects2",
       name: "Nexus",
       app: "Bloging Application",
-      link: "https://nexus-five-chi.vercel.app/",
+      link: "https://nexus-blush-theta-34.vercel.app/",
       github: "https://github.com/Mousumi84/Nexus",
       tech_stacks: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB"],
       fratures: [
